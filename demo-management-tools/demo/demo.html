@@ -5,7 +5,7 @@
     <script src="../bower_components/platform/platform.js"></script>
 
     <!-- Sample Styles -->
-    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
 
     <!-- Supporting Scripts -->
     <script src="js/achievements.js"></script>
@@ -20,46 +20,50 @@
 
     <style>
       core-pages {
-        height:100%;
+        height: 100%;
       }
     </style>
 
     <!-- Polymer -->
     <!-- <script src="../bower_components/platform/platform.js"></script> -->
-    <link rel="import" href="../bower_components/core-icons/core-icons.html">
-    <link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
-    <link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
-    <link rel="import" href="../bower_components/font-roboto/roboto.html">
+    <link rel="import" href="../bower_components/core-icons/core-icons.html" />
+    <link rel="import" href="../bower_components/core-header-panel/core-header-panel.html" />
+    <link rel="import" href="../bower_components/core-toolbar/core-toolbar.html" />
+    <link rel="import" href="../bower_components/font-roboto/roboto.html" />
 
     <!-- Material Paper -->
-    <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-    <link rel="import" href="../bower_components/paper-button/paper-button.html">
-    <link rel="import" href="../bower_components/paper-input/paper-input.html">
-    <link rel="import" href="../bower_components/paper-item/paper-item.html">
-    <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
-    <link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html">
-    <link rel="import" href="../bower_components/paper-shadow/paper-shadow.html">
-    <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
+    <link rel="import" href="../bower_components/paper-button/paper-button.html" />
+    <link rel="import" href="../bower_components/paper-input/paper-input.html" />
+    <link rel="import" href="../bower_components/paper-item/paper-item.html" />
+    <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html" />
+    <link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html" />
+    <link rel="import" href="../bower_components/paper-shadow/paper-shadow.html" />
+    <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html" />
   </head>
   <body fullbleed unresolved touch-action="auto">
-  <core-header-panel>
-    <core-toolbar class="medium-tall">
-      <paper-menu-button icon="menu" halign="left">
-        <paper-item id="signoutButton"
+    <core-header-panel>
+      <core-toolbar class="medium-tall">
+        <paper-menu-button icon="menu" halign="left">
+          <paper-item
+            id="signoutButton"
             onClick="gapi.auth.signOut()"
-            style="font-size:15px; color:#000; display:none;"
-            label="Signout"></paper-item>
-        <paper-item id="disconnectButton"
-            style="font-size:15px; color:#000; display:none;"
-            label="Disconnect"></paper-item>
-      </paper-menu-button>
+            style="font-size: 15px; color: #000; display: none"
+            label="Signout"
+          ></paper-item>
+          <paper-item
+            id="disconnectButton"
+            style="font-size: 15px; color: #000; display: none"
+            label="Disconnect"
+          ></paper-item>
+        </paper-menu-button>
 
-      <div flex>Demo:  Google Play Games Management Console</div>
-      <div>
-        <paper-item id="signinButton">
-          <div style="margin-top: 10px;">
-            <span>
-              <!--
+        <div flex>Demo: Google Play Games Management Console</div>
+        <div>
+          <paper-item id="signinButton">
+            <div style="margin-top: 10px">
+              <span>
+                <!--
                 Update the following value with your Client ID, a string
                 such as 99999999999.apps.googleusercontent.com, from the Google
                 Play Games Developer Console:
@@ -67,595 +71,735 @@
 
                 DON'T FORGET TO UPDATE APP_ID js/constants.js.
               -->
-              <span
-                class="g-signin"
-                data-callback="signinCallback"
-                data-clientid="REPLACE_CLIENT_ID"
-                data-cookiepolicy="single_host_origin"
-                data-scope="https://www.googleapis.com/auth/games https://www.googleapis.com/auth/drive.appdata">
+                <span
+                  class="g-signin"
+                  data-callback="signinCallback"
+                  data-clientid="REPLACE_CLIENT_ID"
+                  data-cookiepolicy="single_host_origin"
+                  data-scope="https://www.googleapis.com/auth/games https://www.googleapis.com/auth/drive.appdata"
+                >
+                </span>
               </span>
-            </span>
-          </div>
-        </paper-item>
-        <div id='playerCard'></div>
-      </div>
-      <div class="bottom fit" horizontal layout>
-        <paper-tabs selected="0" flex style="max-width: 600px;">
-          <paper-tab>Achievements</paper-tab>
-          <paper-tab>Leaderboards</paper-tab>
-          <paper-tab>Events</paper-tab>
-          <paper-tab>Quests</paper-tab>
-          <paper-tab>Multiplayer</paper-tab>
-          <paper-tab>Snapshots</paper-tab>
-        </paper-tabs>
-      </div>
-    </core-toolbar>
-    <div id="activeUI" style='display:none' class="container" layout vertical
-        center>
-      <core-pages class="mainPages" selected="0">
-
-        <div id='achievements' class='core-selected' active>
-          <div vertical layout style="margin-bottom: auto">
-            <div>
-            <h2 class="pageHeading">Achievements Management</h2>
             </div>
-            <div class="mainContent">
-              <p>
-              <div vertical layout class="miniForm">
-                <div horizontal layout style="padding-top: 5px; padding-bottom: 5px;">
-                  <div flex></div>
-                  <div>
-                    <paper-button textButton class="achieveButton"
-                       onClick="achievements.showAchievementList(null)"
-                       >Refresh achievements</paper-button>
+          </paper-item>
+          <div id="playerCard"></div>
+        </div>
+        <div class="bottom fit" horizontal layout>
+          <paper-tabs selected="0" flex style="max-width: 600px">
+            <paper-tab>Achievements</paper-tab>
+            <paper-tab>Leaderboards</paper-tab>
+            <paper-tab>Events</paper-tab>
+            <paper-tab>Quests</paper-tab>
+            <paper-tab>Multiplayer</paper-tab>
+            <paper-tab>Snapshots</paper-tab>
+          </paper-tabs>
+        </div>
+      </core-toolbar>
+      <div id="activeUI" style="display: none" class="container" layout vertical center>
+        <core-pages class="mainPages" selected="0">
+          <div id="achievements" class="core-selected" active>
+            <div vertical layout style="margin-bottom: auto">
+              <div>
+                <h2 class="pageHeading">Achievements Management</h2>
+              </div>
+              <div class="mainContent">
+                <p></p>
+                <div vertical layout class="miniForm">
+                  <div horizontal layout style="padding-top: 5px; padding-bottom: 5px">
+                    <div flex></div>
+                    <div>
+                      <paper-button
+                        textButton
+                        class="achieveButton"
+                        onClick="achievements.showAchievementList(null)"
+                        >Refresh achievements</paper-button
+                      >
+                    </div>
+                  </div>
+                  <div id="achievementListDiv"></div>
+                </div>
+                <p></p>
+                <div horizontal layout class="miniForm">
+                  <div flex>
+                    <div>
+                      <div>
+                        <b>Unlock</b> this achievement for me:
+                        <p></p>
+                        <paper-input
+                          id="unlockAchievementInput"
+                          label="Achievement ID"
+                          style="width: 300px"
+                        >
+                        </paper-input>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="padding-top: 10px">
+                    <paper-button
+                      textButton
+                      class="achieveButton"
+                      onClick="achievements.unlockAchievement()"
+                    >
+                      Unlock
+                    </paper-button>
                   </div>
                 </div>
-                <div id="achievementListDiv"></div>
-              </div>
-              <p>
-              <div horizontal layout class="miniForm">
-                <div flex>
-                  <div>
-                    <div><b>Unlock</b> this achievement for me:
-                    <p>
-                    <paper-input id="unlockAchievementInput"
-                        label="Achievement ID" style="width:300px;">
+                <p></p>
+                <div horizontal layout class="miniForm">
+                  <div flex>
+                    <paper-input
+                      id="ach-ids"
+                      style="width: 500px"
+                      label="Comma-separated achievement ids"
+                    >
                     </paper-input>
+                  </div>
+                  <div style="padding-top: 10px">
+                    <paper-button
+                      textButton
+                      class="achieveButton"
+                      onClick="achievements.resetCurrentMultiple()"
+                      >Reset multiple achievements
+                    </paper-button>
+                  </div>
+                </div>
+                <p></p>
+                <div horizontal layout class="miniForm">
+                  <div flex style="display: table-cell; vertical-align: middle">
+                    <span><b>Increment</b> this achievement for me:</span>
+                    <p></p>
+                    <paper-input
+                      id="stepsAchievementInput"
+                      style="width: 300px"
+                      label="Achievement ID"
+                    >
+                    </paper-input>
+                    <p></p>
+                    <span>Number of steps: </span>
+                    <p></p>
+                    <paper-input
+                      number
+                      id="stepsInput"
+                      style="width: 50px"
+                      label="Steps"
+                    ></paper-input>
+                  </div>
+                  <div style="padding-top: 10px">
+                    <paper-button
+                      textButton
+                      class="achieveButton"
+                      onClick="achievements.incrementAchievement()"
+                      >Increment
+                    </paper-button>
+                  </div>
+                </div>
+                <p></p>
+                <div horizontal layout class="miniForm">
+                  <div flex>
+                    <b>Reset</b> this achievement for me.
+                    <p></p>
+                    <paper-input
+                      id="resetAchievementInput"
+                      style="width: 300px"
+                      label="Achievement ID"
+                    >
+                    </paper-input>
+                  </div>
+                  <div style="padding-top: 10px">
+                    <paper-button
+                      textButton
+                      onClick="achievements.resetAchievement()"
+                      class="achieveButton"
+                      >Reset</paper-button
+                    >
+                    <paper-button
+                      textButton
+                      onClick="achievements.resetAchievementForAll()"
+                      class="achieveButton"
+                      >Reset for All</paper-button
+                    >
+                  </div>
+                </div>
+                <p></p>
+                <div
+                  horizontal
+                  layout
+                  class="miniForm"
+                  style="padding-top: 10px; padding-bottom: 10px"
+                >
+                  <div flex>
+                    <span><b>Reset all achievements</b> for me:</span>
+                  </div>
+                  <p></p>
+                  <div>
+                    <paper-button
+                      textButton
+                      onClick="achievements.resetAllAchievements()"
+                      class="achieveButton"
+                      >Reset All</paper-button
+                    >
+                  </div>
+                </div>
+                <div
+                  horizontal
+                  layout
+                  class="miniForm"
+                  style="padding-top: 10px; padding-bottom: 10px"
+                >
+                  <div flex>
+                    <span><b>Reset all achievements</b> for everybody:</span>
+                  </div>
+                  <p></p>
+                  <div>
+                    <paper-button
+                      textButton
+                      onClick="achievements.resetAllForAll()"
+                      class="achieveButton"
+                      >Reset All</paper-button
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="leaderboard">
+            <div vertical layout style="margin-bottom: auto">
+              <div>
+                <h2 class="pageHeading">Leaderboard Management</h2>
+              </div>
+              <div class="mainContent">
+                <p></p>
+                <div vertical layout class="miniForm">
+                  <div horizontal layout>
+                    <div flex></div>
+                    <div>
+                      <paper-button
+                        textButton
+                        class="leaderButton"
+                        onClick="leaderboards.showLeaderboardList(null)"
+                        >Refresh leaderboard list
+                      </paper-button>
+                    </div>
+                  </div>
+                  <div id="leaderboardListDiv"></div>
+                  <p></p>
+                  <div id="scoresListDiv"></div>
+                </div>
+                <div vertical layout class="miniForm">
+                  <div horizontal layout>
+                    <div flex>
+                      <paper-input
+                        id="leaderboardIdShowHS"
+                        label="Leaderboard ID"
+                        style="margin-right: 50px; width: 150px"
+                      >
+                      </paper-input>
+                    </div>
+                    <div>
+                      <paper-button
+                        textButton
+                        class="leaderButton"
+                        onClick="player.showHighScoreList(null)"
+                      >
+                        Refresh high scores
+                      </paper-button>
+                      <paper-button
+                        textButton
+                        class="leaderButton"
+                        onClick="leaderboards.resetMyScores()"
+                      >
+                        Reset all my scores
+                      </paper-button>
+                      <paper-button
+                        textButton
+                        class="leaderButton"
+                        onClick="leaderboards.resetMultipleForAllPlayers()"
+                      >
+                        Reset all scores
+                      </paper-button>
+                    </div>
+                  </div>
+                  <div id="highScoreListDiv"></div>
+                  <div horizontal layout>
+                    <div flex></div>
+                    <div>
+                      <paper-button
+                        textButton
+                        class="leaderButton"
+                        onClick="player.showHiddenPlayers(null)"
+                      >
+                        Refresh hidden players
+                      </paper-button>
+                    </div>
+                  </div>
+                  <div id="hiddenPlayersDiv"></div>
+                </div>
+                <p></p>
+                <div horizontal layout class="miniForm">
+                  <div flex>
+                    <paper-input id="multiLeaderboard" style="width: 500px">
+                      Comma-separated learderboard ids
+                    </paper-input>
+                  </div>
+                  <div style="padding-top: 10px">
+                    <paper-button
+                      textButton
+                      class="leaderButton"
+                      onClick="leaderboards.resetMultipleForAllPlayers()"
+                    >
+                      Reset multiple leaderboards
+                    </paper-button>
+                  </div>
+                </div>
+                <p></p>
+                <div horizontal layout class="miniForm">
+                  <div flex>
+                    <div><b>Hide</b> this player Id:</div>
+                    <paper-input id="playerIdHideInput" style="width: 300px" label="playerId">
+                    </paper-input>
+                  </div>
+                  <div style="padding-top: 10px">
+                    <paper-button textButton class="leaderButton" onClick="player.hidePlayer()"
+                      >Hide</paper-button
+                    >
+                  </div>
+                </div>
+                <div horizontal layout class="miniForm">
+                  <div flex>
+                    <div><b>Unhide</b> this player Id:</div>
+                    <paper-input id="playerIdUnhideInput" style="width: 300px" label="playerId">
+                    </paper-input>
+                  </div>
+                  <div style="padding-top: 10px">
+                    <paper-button textButton class="leaderButton" onClick="player.unhidePlayer()"
+                      >Unhide</paper-button
+                    >
+                  </div>
+                </div>
+                <p></p>
+                <div horizontal layout class="miniForm">
+                  <div flex>
+                    <div><b>Submit score</b> for this leaderboard:</div>
+                    <paper-input
+                      id="leaderboardIdInput"
+                      label="Leaderboard ID"
+                      style="width: 300px"
+                    >
+                    </paper-input>
+                    <paper-input id="playerScoreInput" style="width: 100px" label="Score">
+                    </paper-input>
+                  </div>
+                  <div style="padding-top: 10px">
+                    <paper-button
+                      textButton
+                      style="margin-left: 10px; margin-top: 10px"
+                      class="leaderButton"
+                      onClick="leaderboards.submitScore()"
+                      >Submit
+                    </paper-button>
+                  </div>
+                </div>
+                <div horizontal layout class="miniForm">
+                  <div flex>
+                    <div><b>Reset</b> my scores on this leaderboard:</div>
+                    <paper-input
+                      id="leaderboardResetIdInput"
+                      style="width: 300px"
+                      label="Leaderboard ID"
+                    >
+                    </paper-input>
+                  </div>
+                  <div style="padding-top: 10px">
+                    <paper-button
+                      textButton
+                      class="leaderButton"
+                      onClick="leaderboards.resetLeaderboard()"
+                      >Reset
+                    </paper-button>
+                    <paper-button
+                      textButton
+                      class="leaderButton"
+                      onClick="leaderboards.resetLeaderboard()"
+                      >Reset for All
+                    </paper-button>
+                  </div>
+                </div>
+                <p>
+                  Remove access to this app by going to:
+                  <a href="http://plus.google.com/apps">your app controls page.</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="events">
+            <div vertical layout style="margin-bottom: auto">
+              <div>
+                <h2 class="pageHeading">Events Management</h2>
+              </div>
+              <div class="mainContent">
+                <div vertical layout class="miniForm">
+                  <div horizontal layout style="padding-top: 5px; padding-bottom: 5px">
+                    <div id="eventsBox" flex></div>
+                    <div style="text-align: right">
+                      <paper-button
+                        textButton
+                        class="eventsButton"
+                        onClick="events.updateEventsList()"
+                        >Refresh Events</paper-button
+                      >
+                      <p></p>
                     </div>
                   </div>
                 </div>
-                <div style="padding-top: 10px;">
-                  <paper-button textButton class="achieveButton"
-                      onClick="achievements.unlockAchievement()">
-                      Unlock
-                  </paper-button>
-                </div>
-              </div>
-              <p>
-              <div horizontal layout class="miniForm">
-                <div flex>
-                  <paper-input id="ach-ids"
-                     style="width:500px;"
-                     label="Comma-separated achievement ids">
-                  </paper-input>
-                </div>
-                <div style="padding-top: 10px;">
-                  <paper-button textButton class="achieveButton"
-                      onClick="achievements.resetCurrentMultiple()">Reset multiple achievements
-                  </paper-button>
-                </div>
-              </div>
-              <p>
-              <div horizontal layout class="miniForm">
-                <div flex style="display:table-cell; vertical-align:middle">
-                  <span><b>Increment</b> this achievement for me:</span>
-                  <p>
-                  <paper-input id="stepsAchievementInput" style="width:300px;" label="Achievement ID">
-                  </paper-input>
-                  <p>
-                  <span>Number of steps: </span>
-                  <p>
-                  <paper-input number id="stepsInput" style="width:50px;" label="Steps"></paper-input>
-                </div>
-                <div style="padding-top: 10px;">
-                  <paper-button textButton class="achieveButton"
-                      onClick="achievements.incrementAchievement()"
-                      >Increment
-                  </paper-button>
-                </div>
-              </div>
-              <p>
-              <div horizontal layout class="miniForm">
-                <div flex>
-                  <b>Reset</b> this achievement for me.
-                  <p>
-                  <paper-input id="resetAchievementInput" style="width:300px;" label="Achievement ID">
-                  </paper-input>
-                </div>
-                <div style="padding-top: 10px;">
-                  <paper-button textButton onClick="achievements.resetAchievement()"
-                      class="achieveButton">Reset</paper-button>
-                  <paper-button textButton onClick="achievements.resetAchievementForAll()"
-                      class="achieveButton">Reset for All</paper-button>
-                </div>
-              </div>
-              <p>
-              <div horizontal layout class="miniForm"
-                  style="padding-top: 10px; padding-bottom: 10px;">
-                <div flex>
-                  <span><b>Reset all achievements</b> for me:</span>
-                </div>
-                  <p>
-                <div>
-                  <paper-button textButton
-                      onClick="achievements.resetAllAchievements()"
-                      class="achieveButton">Reset All</paper-button>
-                </div>
-              </div>
-              <div horizontal layout class="miniForm"
-                  style="padding-top: 10px; padding-bottom: 10px;">
-                <div flex>
-                  <span><b>Reset all achievements</b> for everybody:</span>
-                </div>
-                  <p>
-                <div>
-                  <paper-button textButton
-                      onClick="achievements.resetAllForAll()"
-                      class="achieveButton">Reset All</paper-button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id='leaderboard'>
-          <div vertical layout style="margin-bottom: auto">
-            <div>
-              <h2 class="pageHeading" >Leaderboard Management</h2>
-            </div>
-            <div class="mainContent">
-              <p>
-              <div vertical layout class="miniForm">
-                <div horizontal layout>
-                  <div flex></div>
-                  <div>
-                    <paper-button textButton class="leaderButton"
-                       onClick="leaderboards.showLeaderboardList(null)">Refresh leaderboard list
-                    </paper-button>
+                <p></p>
+                <div vertical layout class="miniForm">
+                  <div horizontal layout style="padding-top: 5px; padding-bottom: 5px">
+                    <div flex>
+                      <paper-input id="selectedEvent" label="Selected Event" style="width: 300px">
+                      </paper-input>
+                    </div>
+                    <div style="text-align: right">
+                      <p></p>
+                      <paper-button
+                        textButton
+                        class="eventsButton"
+                        onClick="events.resetCurrentEvent()"
+                        >Reset event for me</paper-button
+                      >
+                      <p></p>
+                      <paper-button
+                        textButton
+                        class="eventsButton"
+                        onClick="events.resetAllEventsForMe()"
+                        >Reset all my events</paper-button
+                      >
+                      <p></p>
+                      <paper-button
+                        textButton
+                        class="eventsButton"
+                        onClick="events.resetCurrentEventForAll()"
+                        >Reset Event for All Players</paper-button
+                      >
+                      <p></p>
+                      <paper-button
+                        textButton
+                        class="eventsButton"
+                        onClick="events.resetAllForAll()"
+                        >Reset All Events For All Players</paper-button
+                      >
+                    </div>
                   </div>
                 </div>
-                <div id="leaderboardListDiv"></div>
-                <p>
-                <div id="scoresListDiv"></div>
-              </div>
-              <div vertical layout class="miniForm">
-                <div horizontal layout>
-                  <div flex>
-                    <paper-input id="leaderboardIdShowHS" label="Leaderboard ID"
-                        style="margin-right: 50px; width:150px">
-                    </paper-input>
-                  </div>
-                  <div>
-                    <paper-button textButton class="leaderButton"
-                       onClick="player.showHighScoreList(null)">
-                       Refresh high scores
-                    </paper-button>
-                      <paper-button textButton class="leaderButton"
-                          onClick="leaderboards.resetMyScores()">
-                          Reset all my scores
-                      </paper-button>
-                      <paper-button textButton class="leaderButton"
-                          onClick="leaderboards.resetMultipleForAllPlayers()">
-                          Reset all scores
-                      </paper-button>
-                  </div>
-                </div>
-                <div id="highScoreListDiv"></div>
-                <div horizontal layout>
-                  <div flex></div>
-                  <div>
-                    <paper-button textButton class="leaderButton"
-                       onClick="player.showHiddenPlayers(null)">
-                       Refresh hidden players
-                    </paper-button>
-                  </div>
-                </div>
-                <div id="hiddenPlayersDiv"></div>
-              </div>
-              <p>
-              <div horizontal layout class="miniForm">
-                <div flex>
-                  <paper-input id="multiLeaderboard"
-                     style="width:500px;"
-                     >
-                     Comma-separated learderboard ids
-                  </paper-input>
-                </div>
-                <div style="padding-top: 10px;">
-                  <paper-button textButton class="leaderButton"
-                      onClick="leaderboards.resetMultipleForAllPlayers()">
-                      Reset multiple leaderboards
-                  </paper-button>
-                </div>
-              </div>
-              <p>
-              <div horizontal layout class="miniForm">
-                <div flex>
-                  <div><b>Hide</b> this player Id:</div>
-                  <paper-input id="playerIdHideInput"
-                     style="width:300px;" label="playerId">
-                  </paper-input>
-                </div>
-                <div style="padding-top: 10px;">
-                  <paper-button textButton class="leaderButton"
-                      onClick="player.hidePlayer()">Hide</paper-button>
-                </div>
-              </div>
-              <div horizontal layout class="miniForm">
-                <div flex>
-                  <div><b>Unhide</b> this player Id:</div>
-                  <paper-input id="playerIdUnhideInput"
-                      style="width:300px;" label="playerId">
-                  </paper-input>
-                </div>
-                <div style="padding-top: 10px;">
-                  <paper-button textButton class="leaderButton"
-                      onClick="player.unhidePlayer()">Unhide</paper-button>
-                </div>
-              </div>
-              <p>
-              <div horizontal layout class="miniForm">
-                <div flex>
-                  <div><b>Submit score</b> for this leaderboard:</div>
-                  <paper-input id="leaderboardIdInput"
-                      label="Leaderboard ID" style="width:300px;">
-                  </paper-input>
-                  <paper-input id="playerScoreInput"
-                      style="width:100px;" label="Score">
-                  </paper-input>
-                </div>
-                <div style="padding-top: 10px;">
-                <paper-button textButton style="margin-left:10px; margin-top:10px" class="leaderButton"
-                    onClick="leaderboards.submitScore()">Submit
-                </paper-button>
-                </div>
-              </div>
-              <div horizontal layout class="miniForm">
-                <div flex>
-                  <div><b>Reset</b> my scores on this leaderboard:</div>
-                  <paper-input id="leaderboardResetIdInput" style="width:300px;"
-                      label="Leaderboard ID">
-                  </paper-input>
-                </div>
-                <div style="padding-top: 10px;">
-                  <paper-button textButton class="leaderButton"
-                      onClick="leaderboards.resetLeaderboard()">Reset
-                  </paper-button>
-                  <paper-button textButton class="leaderButton"
-                      onClick="leaderboards.resetLeaderboard()">Reset for All
-                  </paper-button>
-                </div>
-              </div>
-              <p>Remove access to this app by going to:
-                <a href="http://plus.google.com/apps">your app controls page.</a>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div id='events'>
-          <div vertical layout style="margin-bottom: auto">
-            <div>
-            <h2 class="pageHeading">Events Management</h2>
-            </div>
-            <div class="mainContent">
-              <div vertical layout class="miniForm">
-                <div horizontal layout style="padding-top: 5px; padding-bottom: 5px;">
-                  <div id="eventsBox" flex></div>
-                  <div style="text-align:right;">
-                    <paper-button textButton class="eventsButton"
-                       onClick="events.updateEventsList()"
-                       >Refresh Events</paper-button>
-                    <p>
-                  </div>
-                </div>
-              </div>
-              <p>
-              <div vertical layout class="miniForm">
-                <div horizontal layout style="padding-top: 5px; padding-bottom: 5px;">
-                  <div flex>
-                    <paper-input id="selectedEvent"
-                        label="Selected Event" style="width:300px;">
-                    </paper-input>
-                  </div>
-                  <div style="text-align:right;">
-                    <p>
-                    <paper-button textButton class="eventsButton"
-                       onClick="events.resetCurrentEvent()"
-                       >Reset event for me</paper-button>
-                    <p>
-                    <paper-button textButton class="eventsButton"
-                       onClick="events.resetAllEventsForMe()"
-                       >Reset all my events</paper-button>
-                    <p>
-                    <paper-button textButton class="eventsButton"
-                       onClick="events.resetCurrentEventForAll()"
-                       >Reset Event for All Players</paper-button>
-                    <p>
-                    <paper-button textButton class="eventsButton"
-                       onClick="events.resetAllForAll()"
-                       >Reset All Events For All Players</paper-button>
-                  </div>
-                </div>
-              </div>
-              <p>
-              <div vertical layout class="miniForm">
-                <div horizontal layout style="padding-top: 5px; padding-bottom: 5px;">
-                  <div flex>
-                    <paper-input label="Comma-separated Event IDs"
-                      id="event-ids" style="width:500px">
-                  </div>
-                  <div style="text-align:right;">
-                    <paper-button textButton class="eventsButton"
-                      onClick="events.resetCurrentMultipleForAll()"
-                    >Reset Multiple Events</paper-button>
+                <p></p>
+                <div vertical layout class="miniForm">
+                  <div horizontal layout style="padding-top: 5px; padding-bottom: 5px">
+                    <div flex>
+                      <paper-input
+                        label="Comma-separated Event IDs"
+                        id="event-ids"
+                        style="width: 500px"
+                      ></paper-input>
+                    </div>
+                    <div style="text-align: right">
+                      <paper-button
+                        textButton
+                        class="eventsButton"
+                        onClick="events.resetCurrentMultipleForAll()"
+                        >Reset Multiple Events</paper-button
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div id='quests'>
-          <div vertical layout style="margin-bottom: auto">
-            <div>
-            <h2 class="pageHeading">Quests Management</h2>
-            </div>
-            <div class="mainContent">
-              <div vertical layout class="miniForm">
-                <div horizontal layout style="padding-top: 5px; padding-bottom: 5px;">
-                  <div id="questsBox" style="color:black;" flex></div>
-                  <div style="text-align:right;">
-                    <paper-button textButton class="questsButton"
-                       onClick="quests.updateQuestsList()"
-                       >Refresh Quests</paper-button>
-                    <p>
-                    <paper-button textButton class="questsButton"
-                       onClick="quests.resetAllMyQuests()"
-                       >Reset all my Quests</paper-button>
-                    <p>
-                    <paper-button textButton class="questsButton"
-                       onClick="quests.resetAllForAll()"
-                       >Reset all Quests for all Players</paper-button>
-                  </div>
-                </div>
+          <div id="quests">
+            <div vertical layout style="margin-bottom: auto">
+              <div>
+                <h2 class="pageHeading">Quests Management</h2>
               </div>
-              <p>
-              <div vertical layout class="miniForm">
-                <div horizontal layout style="padding-top: 5px; padding-bottom: 5px;">
-                  <div flex>
-                    <paper-input label="Comma-separated Quest IDs"
-                        id="quest-ids" style="width:500px">
-                  </div>
-                  <div style="text-align:right;">
-                    <paper-button textButton class="questsButton"
-                       onClick="quests.resetCurrentMultiple()"
-                       >Reset Multiple Quests</paper-button>
-                  </div>
-                </div>
-              </div>
-              <ul>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id='multiplayer'>
-          <div vertical layout style="margin-bottom: auto">
-            <div>
-            <h2 class="pageHeading">Multiplayer Management</h2>
-            </div>
-            <div class="mainContent">
-              <!-- Rooms -->
-              <div vertical layout class="miniForm">
-                <div horizontal layout style="padding-top: 5px; padding-bottom: 5px;">
-                  <div flex style="text-align:left;">
-                    <p>Click the following button to reset your Real-time
-                        rooms:<br>
-                    <paper-button textButton class="mpButton"
-                       onClick="multiplayer.resetMyRealtimeRooms()"
-                       >Reset My Real-time Rooms</paper-button>
-                    <hr>
-                    <p>Click the following button to reset Real-time rooms for
-                        all players:<br>
-                    <paper-button textButton class="mpButton"
-                       onClick="multiplayer.resetAllRealtimeRooms()"
-                       >Reset All Real-time Rooms</paper-button>
-                    <hr>
-                    <p>Click the following button to reset your Turn-based
-                        Rooms:<br>
-                    <paper-button textButton class="mpButton"
-                       onClick="multiplayer.resetMyTurnbasedRooms()"
-                       >Reset My Turn-Based Rooms</paper-button>
-                    <hr>
-                    <p>Click the following button to reset Turn-based Rooms for
-                        all players:<br>
-                    <paper-button textButton class="mpButton"
-                       onClick="multiplayer.resetAllTurnbasedRooms()"
-                       >Reset All Turn-Based Rooms</paper-button>
+              <div class="mainContent">
+                <div vertical layout class="miniForm">
+                  <div horizontal layout style="padding-top: 5px; padding-bottom: 5px">
+                    <div id="questsBox" style="color: black" flex></div>
+                    <div style="text-align: right">
+                      <paper-button
+                        textButton
+                        class="questsButton"
+                        onClick="quests.updateQuestsList()"
+                        >Refresh Quests</paper-button
+                      >
+                      <p></p>
+                      <paper-button
+                        textButton
+                        class="questsButton"
+                        onClick="quests.resetAllMyQuests()"
+                        >Reset all my Quests</paper-button
+                      >
+                      <p></p>
+                      <paper-button
+                        textButton
+                        class="questsButton"
+                        onClick="quests.resetAllForAll()"
+                        >Reset all Quests for all Players</paper-button
+                      >
+                    </div>
                   </div>
                 </div>
-              </div>
-              <p>
-              <!-- TurnBased -->
-            </div>
-          </div>
-        </div>
-
-        <div id='snapshots'>
-          <div vertical layout style="margin-bottom: auto">
-            <div>
-            <h2 class="pageHeading">Snapshots Management</h2>
-            </div>
-            <div class="mainContent">
-              <div vertical layout class="miniForm">
-                <div horizontal layout style="padding-top: 5px; padding-bottom: 5px;">
-                  <div flex style="text-align:left;">
-                    <paper-input id="selectedSnapshot"
-                        label="Selected Snapshot ID" style="width:500px;">
-                    </paper-input>
-                    <div id="snapshotsListArea"></div>
-                    <hr>
-                  </div>
-                  <div style="text-align:right;">
-                    <p>
-                    <paper-button textButton class="snapButton"
-                       onClick="snapshots.updateSnapshotList()"
-                       >Refresh Snapshot List</paper-button>
-                    <p>
-                    <paper-button textButton class="snapButton"
-                       onClick="snapshots.peekCurrentSnapshot()"
-                       >Peek Selected</paper-button>
+                <p></p>
+                <div vertical layout class="miniForm">
+                  <div horizontal layout style="padding-top: 5px; padding-bottom: 5px">
+                    <div flex>
+                      <paper-input
+                        label="Comma-separated Quest IDs"
+                        id="quest-ids"
+                        style="width: 500px"
+                      ></paper-input>
+                    </div>
+                    <div style="text-align: right">
+                      <paper-button
+                        textButton
+                        class="questsButton"
+                        onClick="quests.resetCurrentMultiple()"
+                        >Reset Multiple Quests</paper-button
+                      >
+                    </div>
                   </div>
                 </div>
-              </div>
-              <p>
-              <div vertical layout class="miniForm">
-                <div horizontal layout style="padding-top: 5px; padding-bottom: 5px;">
-                  <div flex style="text-align:left;">
-                    <div id="snapshotEditArea"></div>
-                  </div>
-                  <div style="text-align:right;">
-                    <paper-button textButton class="snapButton"
-                       onClick="snapshots.pokeCurrentSnapshot()"
-                       >Write Data</paper-button>
-                  </div>
-                </div>
+                <ul></ul>
               </div>
             </div>
           </div>
-        </div>
 
-      </core-pages>
-    </div>
-  </core-header-panel>
-  <div style="color:#ff0000;" id="errorDiv"> </div>
+          <div id="multiplayer">
+            <div vertical layout style="margin-bottom: auto">
+              <div>
+                <h2 class="pageHeading">Multiplayer Management</h2>
+              </div>
+              <div class="mainContent">
+                <!-- Rooms -->
+                <div vertical layout class="miniForm">
+                  <div horizontal layout style="padding-top: 5px; padding-bottom: 5px">
+                    <div flex style="text-align: left">
+                      <p>Click the following button to reset your Real-time rooms:</p>
+                      <br />
+                      <paper-button
+                        textButton
+                        class="mpButton"
+                        onClick="multiplayer.resetMyRealtimeRooms()"
+                        >Reset My Real-time Rooms</paper-button
+                      >
+                      <hr />
+                      <p>Click the following button to reset Real-time rooms for all players:</p>
+                      <br />
+                      <paper-button
+                        textButton
+                        class="mpButton"
+                        onClick="multiplayer.resetAllRealtimeRooms()"
+                        >Reset All Real-time Rooms</paper-button
+                      >
+                      <hr />
+                      <p>Click the following button to reset your Turn-based Rooms:</p>
+                      <br />
+                      <paper-button
+                        textButton
+                        class="mpButton"
+                        onClick="multiplayer.resetMyTurnbasedRooms()"
+                        >Reset My Turn-Based Rooms</paper-button
+                      >
+                      <hr />
+                      <p>Click the following button to reset Turn-based Rooms for all players:</p>
+                      <br />
+                      <paper-button
+                        textButton
+                        class="mpButton"
+                        onClick="multiplayer.resetAllTurnbasedRooms()"
+                        >Reset All Turn-Based Rooms</paper-button
+                      >
+                    </div>
+                  </div>
+                </div>
+                <p></p>
+                <!-- TurnBased -->
+              </div>
+            </div>
+          </div>
+
+          <div id="snapshots">
+            <div vertical layout style="margin-bottom: auto">
+              <div>
+                <h2 class="pageHeading">Snapshots Management</h2>
+              </div>
+              <div class="mainContent">
+                <div vertical layout class="miniForm">
+                  <div horizontal layout style="padding-top: 5px; padding-bottom: 5px">
+                    <div flex style="text-align: left">
+                      <paper-input
+                        id="selectedSnapshot"
+                        label="Selected Snapshot ID"
+                        style="width: 500px"
+                      >
+                      </paper-input>
+                      <div id="snapshotsListArea"></div>
+                      <hr />
+                    </div>
+                    <div style="text-align: right">
+                      <p></p>
+                      <paper-button
+                        textButton
+                        class="snapButton"
+                        onClick="snapshots.updateSnapshotList()"
+                        >Refresh Snapshot List</paper-button
+                      >
+                      <p></p>
+                      <paper-button
+                        textButton
+                        class="snapButton"
+                        onClick="snapshots.peekCurrentSnapshot()"
+                        >Peek Selected</paper-button
+                      >
+                    </div>
+                  </div>
+                </div>
+                <p></p>
+                <div vertical layout class="miniForm">
+                  <div horizontal layout style="padding-top: 5px; padding-bottom: 5px">
+                    <div flex style="text-align: left">
+                      <div id="snapshotEditArea"></div>
+                    </div>
+                    <div style="text-align: right">
+                      <paper-button
+                        textButton
+                        class="snapButton"
+                        onClick="snapshots.pokeCurrentSnapshot()"
+                        >Write Data</paper-button
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </core-pages>
+      </div>
+    </core-header-panel>
+    <div style="color: #ff0000" id="errorDiv"></div>
   </body>
 
   <script>
-    var tabs = document.querySelector('paper-tabs');
+    var tabs = document.querySelector("paper-tabs");
 
     var colors = {
-      accent1: '#00bcd4', // achievements
-      accent2: '#e81d62', // leaderboards
-      accent3: '#9f499b', // events
-      accent4: '#d23f31', // quests
-      accent5: '#f9b24f', // multiplayer
-      accent6: '#3e50b4'  // snapshots
+      accent1: "#00bcd4", // achievements
+      accent2: "#e81d62", // leaderboards
+      accent3: "#9f499b", // events
+      accent4: "#d23f31", // quests
+      accent5: "#f9b24f", // multiplayer
+      accent6: "#3e50b4", // snapshots
     };
 
-    tabs.addEventListener('core-select', function() {
-      var pages = document.querySelector('core-pages');
+    tabs.addEventListener("core-select", function () {
+      var pages = document.querySelector("core-pages");
       pages.selected = (pages.selected + 1) % pages.children.length;
 
-      console.log('Selected: ' + tabs.selected);
+      console.log("Selected: " + tabs.selected);
 
       var pageIds = [
-        {selectorId: 0, idString: '#achievements', color: colors.accent1},
-        {selectorId: 1, idString: '#leaderboard', color: colors.accent2},
-        {selectorId: 2, idString: '#events', color: colors.accent3},
-        {selectorId: 3, idString: '#quests', color: colors.accent4},
-        {selectorId: 4, idString: '#multiplayer', color: colors.accent5},
-        {selectorId: 5, idString: '#snapshots', color: colors.accent6}
+        { selectorId: 0, idString: "#achievements", color: colors.accent1 },
+        { selectorId: 1, idString: "#leaderboard", color: colors.accent2 },
+        { selectorId: 2, idString: "#events", color: colors.accent3 },
+        { selectorId: 3, idString: "#quests", color: colors.accent4 },
+        { selectorId: 4, idString: "#multiplayer", color: colors.accent5 },
+        { selectorId: 5, idString: "#snapshots", color: colors.accent6 },
       ];
 
       for (var i = 0; i < pageIds.length; i++) {
         if (pageIds[i].selectorId == tabs.selected) {
           var highlight = document.querySelector(pageIds[i].idString);
-          highlight.classList.add('core-selected');
-          highlight.style.display = 'block';
-          document.querySelector('core-toolbar').style.backgroundColor =
-              pageIds[i].color;
-          document.querySelector('paper-tabs').style.backgroundColor =
-              pageIds[i].color;
+          highlight.classList.add("core-selected");
+          highlight.style.display = "block";
+          document.querySelector("core-toolbar").style.backgroundColor = pageIds[i].color;
+          document.querySelector("paper-tabs").style.backgroundColor = pageIds[i].color;
         } else {
           var highlight = document.querySelector(pageIds[i].idString);
-          highlight.classList.remove('core-selected');
-          highlight.style.display = 'none';
+          highlight.classList.remove("core-selected");
+          highlight.style.display = "none";
         }
       }
     });
   </script>
-<!-- Place this asynchronous JavaScript just before your </body> tag -->
-<script type="text/javascript">
+  <!-- Place this asynchronous JavaScript just before your </body> tag -->
+  <script type="text/javascript">
+    /**
+     *  Callback on signin check.
+     *  Note: The signin check happens both on page load and when you click the
+     *  actual signin button.
+     *
+     * @param {Object} authResult The data result returned from sign in.
+     */
+    function signinCallback(authResult) {
+      console.log(authResult);
+      if (authResult.access_token) {
+        // Successfully authorized
+        // Hide the sign-in button now that the user is authorized, for example:
+        document.getElementById("signinButton").style.display = "none";
+        document.getElementById("signoutButton").style.display = "block";
+        document.getElementById("disconnectButton").style.display = "block";
+        document.getElementById("playerCard").style.display = "block";
 
-/**
- *  Callback on signin check.
- *  Note: The signin check happens both on page load and when you click the
- *  actual signin button.
- *
- * @param {Object} authResult The data result returned from sign in.
- */
-function signinCallback(authResult) {
-  console.log(authResult);
-  if (authResult.access_token) {
-      // Successfully authorized
-      // Hide the sign-in button now that the user is authorized, for example:
-      document.getElementById('signinButton').style.display = 'none';
-      document.getElementById('signoutButton').style.display = 'block';
-      document.getElementById('disconnectButton').style.display = 'block';
-      document.getElementById('playerCard').style.display = 'block';
+        loadGoogleClients();
+      } else if (authResult.error) {
+        // There was an error.
+        // Possible error codes:
+        //   "access_denied" - User denied access to your app
+        //   "immediate_failed" - Could not automatically log in the user
+        console.log("There was an error: " + authResult.error);
 
-      loadGoogleClients();
-  } else if (authResult.error) {
-      // There was an error.
-      // Possible error codes:
-      //   "access_denied" - User denied access to your app
-      //   "immediate_failed" - Could not automatically log in the user
-      console.log('There was an error: ' + authResult.error);
+        document.getElementById("signinButton").style.display = "block";
+        document.getElementById("signoutButton").style.display = "none";
+        document.getElementById("disconnectButton").style.display = "none";
+        document.getElementById("playerCard").style.display = "none";
+      }
+    }
 
-      document.getElementById('signinButton').style.display = 'block';
-      document.getElementById('signoutButton').style.display = 'none';
-      document.getElementById('disconnectButton').style.display = 'none';
-      document.getElementById('playerCard').style.display = 'none';
-  }
-}
+    /** Activate the authorized UI. */
+    var activateUI = function () {
+      document.getElementById("activeUI").style.display = "block";
+      // Wait briefly to ensure that the client has authorized.
+      player.personalizeUI();
+      achievements.initAchievements();
+    };
 
+    var gapi = gapi || {};
+    /**
+     * Loads the Google API clients and initializes the UI.
+     */
+    var loadGoogleClients = function () {
+      gapi.client.load("gamesManagement", "v1management", function (response) {
+        console.log("Games management loaded.");
+        gapi.client.load("games", "v1", function (response) {
+          console.log("Games loaded.");
+          gapi.client.load("drive", "v2", function (response) {
+            console.log("Drive loaded.");
+            activateUI();
+          });
+        });
+      });
+    };
 
-/** Activate the authorized UI. */
-var activateUI = function() {
-  document.getElementById('activeUI').style.display = 'block';
-  // Wait briefly to ensure that the client has authorized.
-  player.personalizeUI();
-  achievements.initAchievements();
-};
-
-
-var gapi = gapi || {};
-/**
- * Loads the Google API clients and initializes the UI.
- */
-var loadGoogleClients = function() {
-  gapi.client.load('gamesManagement', 'v1management', function(response) {
-    console.log('Games management loaded.');
-    gapi.client.load('games', 'v1', function(response) {
-      console.log('Games loaded.');
-      gapi.client.load('drive', 'v2', function(response) {
-        console.log('Drive loaded.');
-        activateUI();
-      }); }); });
-};
-
-/**
- * Async load of Google API client libraries and signin script.
- */
-(function() {
-  var po = document.createElement('script');
-  po.type = 'text/javascript'; po.async = true;
-  po.src =
-    'https://apis.google.com/js/client:plusone.js';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(po, s);
-})();
-</script>
+    /**
+     * Async load of Google API client libraries and signin script.
+     */
+    (function () {
+      var po = document.createElement("script");
+      po.type = "text/javascript";
+      po.async = true;
+      po.src = "https://apis.google.com/js/client:plusone.js";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(po, s);
+    })();
+  </script>
 </html>
