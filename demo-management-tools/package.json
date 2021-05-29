@@ -1,0 +1,19 @@
+{
+  "name": "demo-management-tools",
+  "version": "1.0.0",
+  "description": "This demo console shows you how to use the Google Play Games Management API to manage and test Google Play Games Features.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-input": "^3.2.1",
+    "@polymer/paper-item": "^3.0.1",
+    "@polymer/paper-tabs": "^3.1.0",
+    "@polymer/polymer": "^3.4.1",
+    "@webcomponents/webcomponentsjs": "^2.5.0"
+  }
+}

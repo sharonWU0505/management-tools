@@ -1,71 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Polymer -->
-    <script src="../bower_components/platform/platform.js"></script>
-
-    <!-- Sample Styles -->
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
+    <link rel="shortcut icon" type="image" href="assets/favicon.ico" />
 
     <!-- Supporting Scripts -->
-    <script src="js/achievements.js"></script>
-    <script src="js/constants.js"></script>
-    <script src="js/events.js"></script>
-    <script src="js/quests.js"></script>
-    <script src="js/leaderboards.js"></script>
-    <script src="js/multiplayer.js"></script>
-    <script src="js/player.js"></script>
-    <script src="js/snapshots.js"></script>
-    <script src="js/utilities.js"></script>
+    <script src="assets/js/achievements.js"></script>
+    <script src="assets/js/constants.js"></script>
+    <script src="assets/js/events.js"></script>
+    <script src="assets/js/quests.js"></script>
+    <script src="assets/js/leaderboards.js"></script>
+    <script src="assets/js/multiplayer.js"></script>
+    <script src="assets/js/player.js"></script>
+    <script src="assets/js/snapshots.js"></script>
+    <script src="assets/js/utilities.js"></script>
 
-    <style>
-      core-pages {
-        height: 100%;
-      }
-    </style>
+    <script>
+      window.WebComponents = window.WebComponents || {};
+      window.WebComponents.root = "node_modules/@webcomponents/webcomponentsjs/";
+    </script>
 
-    <!-- Polymer -->
-    <!-- <script src="../bower_components/platform/platform.js"></script> -->
-    <link rel="import" href="../bower_components/core-icons/core-icons.html" />
-    <link rel="import" href="../bower_components/core-header-panel/core-header-panel.html" />
-    <link rel="import" href="../bower_components/core-toolbar/core-toolbar.html" />
-    <link rel="import" href="../bower_components/font-roboto/roboto.html" />
-
-    <!-- Material Paper -->
-    <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html" />
-    <link rel="import" href="../bower_components/paper-button/paper-button.html" />
-    <link rel="import" href="../bower_components/paper-input/paper-input.js" />
-    <link rel="import" href="../bower_components/paper-item/paper-item.html" />
-    <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html" />
-    <link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html" />
-    <link rel="import" href="../bower_components/paper-shadow/paper-shadow.html" />
-    <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html" />
-
-    <link rel="shortcut icon" type="image" href="favicon.ico"/>
+    <script type="module">
+      import "@polymer/paper-button/paper-button.js";
+      import "@polymer/paper-input/paper-input.js";
+      import "@polymer/paper-item/paper-item.js";
+      import "@polymer/paper-tabs/paper-tabs.js";
+      import "@polymer/paper-tabs/paper-tab.js";
+    </script>
   </head>
-  <body fullbleed unresolved touch-action="auto">
-    <core-header-panel>
-      <core-toolbar class="medium-tall">
-        <!-- <paper-menu-button icon="menu" halign="left">
-          <paper-item
-            id="signoutButton"
-            onClick="gapi.auth.signOut()"
-            style="font-size: 15px; color: #000; display: none"
-            label="Signout"
-          ></paper-item>
-          <paper-item
-            id="disconnectButton"
-            style="font-size: 15px; color: #000; display: none"
-            label="Disconnect"
-          ></paper-item>
-        </paper-menu-button> -->
-
-        <div flex>Demo: Google Play Games Management Console</div>
-        <div>
-          <paper-item id="signinButton">
-            <div style="margin-top: 10px">
-              <span>
-                <!--
+  <body>
+    <!-- nav -->
+    <nav id="navbar">
+      <h1>Demo: Google Play Games Management Console</h1>
+      <div id="navbar-signin">
+        <paper-item id="signinButton">
+          <div style="margin-top: 10px">
+            <span>
+              <!--
                 Update the following value with your Client ID, a string
                 such as 99999999999.apps.googleusercontent.com, from the Google
                 Play Games Developer Console:
@@ -73,32 +49,50 @@
 
                 DON'T FORGET TO UPDATE APP_ID js/constants.js.
               -->
-                <span
-                  class="g-signin"
-                  data-callback="signinCallback"
-                  data-clientid="REPLACE_CLIENT_ID"
-                  data-cookiepolicy="single_host_origin"
-                  data-scope="https://www.googleapis.com/auth/games https://www.googleapis.com/auth/drive.appdata"
-                >
-                </span>
+              <span
+                class="g-signin"
+                data-callback="signinCallback"
+                data-clientid="REPLACE_CLIENT_ID"
+                data-cookiepolicy="single_host_origin"
+                data-scope="https://www.googleapis.com/auth/games https://www.googleapis.com/auth/drive.appdata"
+              >
               </span>
-            </div>
-          </paper-item>
-          <div id="playerCard"></div>
-        </div>
-        <div class="bottom fit" horizontal layout style="padding: 0 15px">
-          <paper-tabs selected="0" flex style="max-width: 600px">
-            <paper-tab>Achievements</paper-tab>
-            <paper-tab>Leaderboards</paper-tab>
-            <paper-tab>Events</paper-tab>
-            <paper-tab>Quests</paper-tab>
-            <paper-tab>Multiplayer</paper-tab>
-            <paper-tab>Snapshots</paper-tab>
-          </paper-tabs>
-        </div>
-      </core-toolbar>
+            </span>
+          </div>
+        </paper-item>
+        <div id="playerCard"></div>
+      </div>
+    </nav>
+    <!-- end nav -->
+
+    <!-- aside -->
+    <aside id="aside">
+      <paper-item
+        id="signoutButton"
+        onClick="gapi.auth.signOut()"
+        style="font-size: 15px; color: #000;"
+      >Signout</paper-item>
+      <paper-item
+        id="disconnectButton"
+        style="font-size: 15px; color: #000;"
+      >Disconnect</paper-item>
+    </aside>
+    <!-- end aside -->
+
+    <!-- content -->
+    <section id="content">
+      <div class="bottom fit" horizontal layout>
+        <paper-tabs selected="0" flex style="width: 100%">
+          <paper-tab>Achievements</paper-tab>
+          <paper-tab>Leaderboards</paper-tab>
+          <paper-tab>Events</paper-tab>
+          <paper-tab>Quests</paper-tab>
+          <paper-tab>Multiplayer</paper-tab>
+          <paper-tab>Snapshots</paper-tab>
+        </paper-tabs>
+      </div>
       <div id="activeUI" style="display: none" class="container" layout vertical center>
-        <core-pages class="mainPages" selected="0">
+        <main id="mainPages" class="mainPages" selected="0">
           <div id="achievements" class="core-selected" active>
             <div vertical layout style="margin-bottom: auto">
               <div>
@@ -685,54 +679,14 @@
               </div>
             </div>
           </div>
-        </core-pages>
+        </main>
       </div>
-    </core-header-panel>
+    </section>
+    <!-- end content -->
+
     <div style="color: #ff0000" id="errorDiv"></div>
   </body>
 
-  <script>
-    var tabs = document.querySelector("paper-tabs");
-
-    var colors = {
-      accent1: "#00bcd4", // achievements
-      accent2: "#e81d62", // leaderboards
-      accent3: "#9f499b", // events
-      accent4: "#d23f31", // quests
-      accent5: "#f9b24f", // multiplayer
-      accent6: "#3e50b4", // snapshots
-    };
-
-    tabs.addEventListener("core-select", function () {
-      var pages = document.querySelector("core-pages");
-      pages.selected = (pages.selected + 1) % pages.children.length;
-
-      console.log("Selected: " + tabs.selected);
-
-      var pageIds = [
-        { selectorId: 0, idString: "#achievements", color: colors.accent1 },
-        { selectorId: 1, idString: "#leaderboard", color: colors.accent2 },
-        { selectorId: 2, idString: "#events", color: colors.accent3 },
-        { selectorId: 3, idString: "#quests", color: colors.accent4 },
-        { selectorId: 4, idString: "#multiplayer", color: colors.accent5 },
-        { selectorId: 5, idString: "#snapshots", color: colors.accent6 },
-      ];
-
-      for (var i = 0; i < pageIds.length; i++) {
-        if (pageIds[i].selectorId == tabs.selected) {
-          var highlight = document.querySelector(pageIds[i].idString);
-          highlight.classList.add("core-selected");
-          highlight.style.display = "block";
-          document.querySelector("core-toolbar").style.backgroundColor = pageIds[i].color;
-          document.querySelector("paper-tabs").style.backgroundColor = pageIds[i].color;
-        } else {
-          var highlight = document.querySelector(pageIds[i].idString);
-          highlight.classList.remove("core-selected");
-          highlight.style.display = "none";
-        }
-      }
-    });
-  </script>
   <!-- Place this asynchronous JavaScript just before your </body> tag -->
   <script type="text/javascript">
     /**
@@ -748,8 +702,8 @@
         // Successfully authorized
         // Hide the sign-in button now that the user is authorized, for example:
         document.getElementById("signinButton").style.display = "none";
-        document.getElementById("signoutButton").style.display = "block";
-        document.getElementById("disconnectButton").style.display = "block";
+        // document.getElementById("signoutButton").style.display = "block";
+        // document.getElementById("disconnectButton").style.display = "block";
         document.getElementById("playerCard").style.display = "block";
 
         loadGoogleClients();
@@ -761,8 +715,8 @@
         console.log("There was an error: " + authResult.error);
 
         document.getElementById("signinButton").style.display = "block";
-        document.getElementById("signoutButton").style.display = "none";
-        document.getElementById("disconnectButton").style.display = "none";
+        // document.getElementById("signoutButton").style.display = "none";
+        // document.getElementById("disconnectButton").style.display = "none";
         document.getElementById("playerCard").style.display = "none";
       }
     }

@@ -1,0 +1,48 @@
+body * {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 1.3rem;
+}
+
+#navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background-color: #f3f3f3;
+}
+
+#navbar-signin {
+  margin-left: auto;
+}
+
+#aside {
+  width: 240px;
+  height: calc(100% - 70px);
+  position: fixed;
+  top: 70px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #f3f3f3;
+}
+
+#aside > paper-item {
+  width: 100%;
+  cursor: pointer;
+}
+
+#aside > paper-item:hover {
+  text-decoration: underline;
+}
+
+#content {
+  padding: 15px 15px 15px 255px;
+  height: calc(100% - 70px);
+  overflow-y: scroll;
+}
