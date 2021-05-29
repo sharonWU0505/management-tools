@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="../bower_components/platform/platform.js"></script>
+
     <!-- Sample Styles -->
     <link rel="stylesheet" type="text/css" href="css/demo.css">
 
@@ -22,7 +24,7 @@
     </style>
 
     <!-- Polymer -->
-    <script src="../bower_components/platform/platform.js"></script>
+    <!-- <script src="../bower_components/platform/platform.js"></script> -->
     <link rel="import" href="../bower_components/core-icons/core-icons.html">
     <link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
@@ -104,7 +106,7 @@
                   <div>
                     <paper-button textButton class="achieveButton"
                        onClick="achievements.showAchievementList(null)"
-                       label="Refresh achievements" ></paper-button>
+                       >Refresh achievements</paper-button>
                   </div>
                 </div>
                 <div id="achievementListDiv"></div>
@@ -123,7 +125,8 @@
                 </div>
                 <div style="padding-top: 10px;">
                   <paper-button textButton class="achieveButton"
-                      onClick="achievements.unlockAchievement()" label="Unlock">
+                      onClick="achievements.unlockAchievement()">
+                      Unlock
                   </paper-button>
                 </div>
               </div>
@@ -137,8 +140,7 @@
                 </div>
                 <div style="padding-top: 10px;">
                   <paper-button textButton class="achieveButton"
-                      label="Reset multiple achievements"
-                      onClick="achievements.resetCurrentMultiple()">
+                      onClick="achievements.resetCurrentMultiple()">Reset multiple achievements
                   </paper-button>
                 </div>
               </div>
@@ -157,7 +159,7 @@
                 <div style="padding-top: 10px;">
                   <paper-button textButton class="achieveButton"
                       onClick="achievements.incrementAchievement()"
-                      label="Increment">
+                      >Increment
                   </paper-button>
                 </div>
               </div>
@@ -171,9 +173,9 @@
                 </div>
                 <div style="padding-top: 10px;">
                   <paper-button textButton onClick="achievements.resetAchievement()"
-                      class="achieveButton" label="reset"></paper-button>
+                      class="achieveButton">Reset</paper-button>
                   <paper-button textButton onClick="achievements.resetAchievementForAll()"
-                      class="achieveButton" label="reset for all"></paper-button>
+                      class="achieveButton">Reset for All</paper-button>
                 </div>
               </div>
               <p>
@@ -186,7 +188,7 @@
                 <div>
                   <paper-button textButton
                       onClick="achievements.resetAllAchievements()"
-                      class="achieveButton" label="Reset All"></paper-button>
+                      class="achieveButton">Reset All</paper-button>
                 </div>
               </div>
               <div horizontal layout class="miniForm"
@@ -198,7 +200,7 @@
                 <div>
                   <paper-button textButton
                       onClick="achievements.resetAllForAll()"
-                      class="achieveButton" label="Reset All"></paper-button>
+                      class="achieveButton">Reset All</paper-button>
                 </div>
               </div>
             </div>
@@ -217,8 +219,7 @@
                   <div flex></div>
                   <div>
                     <paper-button textButton class="leaderButton"
-                       label="Refresh leaderboard list"
-                       onClick="leaderboards.showLeaderboardList(null)">
+                       onClick="leaderboards.showLeaderboardList(null)">Refresh leaderboard list
                     </paper-button>
                   </div>
                 </div>
@@ -235,16 +236,16 @@
                   </div>
                   <div>
                     <paper-button textButton class="leaderButton"
-                       label="Refresh high scores"
                        onClick="player.showHighScoreList(null)">
+                       Refresh high scores
                     </paper-button>
                       <paper-button textButton class="leaderButton"
-                          label="Reset all my scores"
                           onClick="leaderboards.resetMyScores()">
+                          Reset all my scores
                       </paper-button>
                       <paper-button textButton class="leaderButton"
-                          label="Reset all scores"
                           onClick="leaderboards.resetMultipleForAllPlayers()">
+                          Reset all scores
                       </paper-button>
                   </div>
                 </div>
@@ -253,8 +254,8 @@
                   <div flex></div>
                   <div>
                     <paper-button textButton class="leaderButton"
-                       label="Refresh hidden players"
                        onClick="player.showHiddenPlayers(null)">
+                       Refresh hidden players
                     </paper-button>
                   </div>
                 </div>
@@ -265,13 +266,14 @@
                 <div flex>
                   <paper-input id="multiLeaderboard"
                      style="width:500px;"
-                     label="Comma-separated learderboard ids">
+                     >
+                     Comma-separated learderboard ids
                   </paper-input>
                 </div>
                 <div style="padding-top: 10px;">
                   <paper-button textButton class="leaderButton"
-                      label="Reset multiple leaderboards"
                       onClick="leaderboards.resetMultipleForAllPlayers()">
+                      Reset multiple leaderboards
                   </paper-button>
                 </div>
               </div>
@@ -297,7 +299,7 @@
                 </div>
                 <div style="padding-top: 10px;">
                   <paper-button textButton class="leaderButton"
-                      onClick="player.unhidePlayer()" label="Unhide"></paper-button>
+                      onClick="player.unhidePlayer()">Unhide</paper-button>
                 </div>
               </div>
               <p>
@@ -313,7 +315,7 @@
                 </div>
                 <div style="padding-top: 10px;">
                 <paper-button textButton style="margin-left:10px; margin-top:10px" class="leaderButton"
-                    onClick="leaderboards.submitScore()" label="Submit">
+                    onClick="leaderboards.submitScore()">Submit
                 </paper-button>
                 </div>
               </div>
@@ -326,10 +328,10 @@
                 </div>
                 <div style="padding-top: 10px;">
                   <paper-button textButton class="leaderButton"
-                      onClick="leaderboards.resetLeaderboard()" label="Reset">
+                      onClick="leaderboards.resetLeaderboard()">Reset
                   </paper-button>
                   <paper-button textButton class="leaderButton"
-                      onClick="leaderboards.resetLeaderboard()" label="Reset for All">
+                      onClick="leaderboards.resetLeaderboard()">Reset for All
                   </paper-button>
                 </div>
               </div>
@@ -352,7 +354,7 @@
                   <div style="text-align:right;">
                     <paper-button textButton class="eventsButton"
                        onClick="events.updateEventsList()"
-                       label="Refresh Events" ></paper-button>
+                       >Refresh Events</paper-button>
                     <p>
                   </div>
                 </div>
@@ -369,19 +371,19 @@
                     <p>
                     <paper-button textButton class="eventsButton"
                        onClick="events.resetCurrentEvent()"
-                       label="Reset event for me" ></paper-button>
+                       >Reset event for me</paper-button>
                     <p>
                     <paper-button textButton class="eventsButton"
                        onClick="events.resetAllEventsForMe()"
-                       label="Reset all my events" ></paper-button>
+                       >Reset all my events</paper-button>
                     <p>
                     <paper-button textButton class="eventsButton"
                        onClick="events.resetCurrentEventForAll()"
-                       label="Reset Event for All Players" ></paper-button>
+                       >Reset Event for All Players</paper-button>
                     <p>
                     <paper-button textButton class="eventsButton"
                        onClick="events.resetAllForAll()"
-                       label="Reset All Events For All Players" ></paper-button>
+                       >Reset All Events For All Players</paper-button>
                   </div>
                 </div>
               </div>
@@ -395,7 +397,7 @@
                   <div style="text-align:right;">
                     <paper-button textButton class="eventsButton"
                        onClick="events.resetCurrentMultipleForAll()"
-                       label="Reset Multiple Events" ></paper-button>
+                       >Reset Multiple Events</paper-button>
                   </div>
                 </div>
               </div>
@@ -415,15 +417,15 @@
                   <div style="text-align:right;">
                     <paper-button textButton class="questsButton"
                        onClick="quests.updateQuestsList()"
-                       label="Refresh Quests" ></paper-button>
+                       >Refresh Quests</paper-button>
                     <p>
                     <paper-button textButton class="questsButton"
                        onClick="quests.resetAllMyQuests()"
-                       label="Reset all my Quests" ></paper-button>
+                       >Reset all my Quests</paper-button>
                     <p>
                     <paper-button textButton class="questsButton"
                        onClick="quests.resetAllForAll()"
-                       label="Reset all Quests for all Players" ></paper-button>
+                       >Reset all Quests for all Players</paper-button>
                   </div>
                 </div>
               </div>
@@ -437,7 +439,7 @@
                   <div style="text-align:right;">
                     <paper-button textButton class="questsButton"
                        onClick="quests.resetCurrentMultiple()"
-                       label="Reset Multiple Quests" ></paper-button>
+                       >Reset Multiple Quests</paper-button>
                   </div>
                 </div>
               </div>
@@ -461,25 +463,25 @@
                         rooms:<br>
                     <paper-button textButton class="mpButton"
                        onClick="multiplayer.resetMyRealtimeRooms()"
-                       label="Reset My Real-time Rooms" ></paper-button>
+                       >Reset My Real-time Rooms</paper-button>
                     <hr>
                     <p>Click the following button to reset Real-time rooms for
                         all players:<br>
                     <paper-button textButton class="mpButton"
                        onClick="multiplayer.resetAllRealtimeRooms()"
-                       label="Reset All Real-time Rooms" ></paper-button>
+                       >Reset All Real-time Rooms</paper-button>
                     <hr>
                     <p>Click the following button to reset your Turn-based
                         Rooms:<br>
                     <paper-button textButton class="mpButton"
                        onClick="multiplayer.resetMyTurnbasedRooms()"
-                       label="Reset My Turn-Based Rooms" ></paper-button>
+                       >Reset My Turn-Based Rooms</paper-button>
                     <hr>
                     <p>Click the following button to reset Turn-based Rooms for
                         all players:<br>
                     <paper-button textButton class="mpButton"
                        onClick="multiplayer.resetAllTurnbasedRooms()"
-                       label="Reset All Turn-Based Rooms" ></paper-button>
+                       >Reset All Turn-Based Rooms</paper-button>
                   </div>
                 </div>
               </div>
@@ -508,11 +510,11 @@
                     <p>
                     <paper-button textButton class="snapButton"
                        onClick="snapshots.updateSnapshotList()"
-                       label="Refresh Snapshot List" ></paper-button>
+                       >Refresh Snapshot List</paper-button>
                     <p>
                     <paper-button textButton class="snapButton"
                        onClick="snapshots.peekCurrentSnapshot()"
-                       label="Peek Selected" ></paper-button>
+                       >Peek Selected</paper-button>
                   </div>
                 </div>
               </div>
@@ -525,7 +527,7 @@
                   <div style="text-align:right;">
                     <paper-button textButton class="snapButton"
                        onClick="snapshots.pokeCurrentSnapshot()"
-                       label="Write Data" ></paper-button>
+                       >Write Data</paper-button>
                   </div>
                 </div>
               </div>
