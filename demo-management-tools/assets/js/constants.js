@@ -19,4 +19,5 @@
 //    https://play.google.com/apps/publish
 //
 // DON'T FORGET TO FILL OUT REPLACE_CLIENT_ID IN demo.html.
+// var APP_ID = 'REPLACE_APP_ID';
 var APP_ID = 'REPLACE_APP_ID';

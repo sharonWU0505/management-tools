@@ -4,35 +4,38 @@ This demo console shows you how to use the Google Play Games Management API to
 manage and test Google Play Games Features.
 
 ## Installation ##
-The sample uses [Bower](http://bower.io/) and
-[Polymer](http://www.polymer-project.org/) to simplify the UI and dependencies
-of the project.
 
-For Bower, you need to install [Node.js](http://nodejs.org/). After node is
-installed, install the Bower package by calling:
+Tried to fix all console errors by using [Web Components](https://www.npmjs.com/package/@webcomponents/webcomponentsjs) and [Polymer 3](https://polymer-library.polymer-project.org/).
 
-`npm install -g bower`
+1. Install Node.js and npm. Install them by [nvm](https://github.com/nvm-sh/nvm) is suggested.
 
-After Bower is installed, you are ready to update the project dependencies with
-Bower by running:
+`nvm use v12.14.0` (Use node `v12.14.0`)
 
-`bower install`
+2. [Install Polymer CLI](https://polymer-library.polymer-project.org/3.0/docs/install-3-0)
 
-With the dependencies set, serve the demo-utils folder from a web server. For
-example, you can use the Python Simple HTTP server module by running:
+`npm install -g polymer-cli`
 
-`python -m SimpleHTTPServer [port]`
+3. Install necessary packages
 
-With the web server running, navigate to /demo/demo.html and you should see
-the sample load.
+`npm install`
+
+4. Run the website
+
+`polymer serve --npm -p 5000`
+
+5. Open `http://localhost:5000/` in the browser
+
+---
+
+(From the original README)
 
 ## Configuration ##
 First, create a client ID for Web applications from the [Google Play Developer
 Console](https://play.google.com/apps/publish) within the project that you
 want to manage.
 
-Replace `REPLACE_CLIENT_ID` in demo.html with your app's client ID and also replace
-`REPLACE_APP_ID` in `js/constants.js` with the app ID for your Games Services ID
+Replace `REPLACE_CLIENT_ID` in `index.html` with your app's client ID and also replace
+`REPLACE_APP_ID` in `assets/js/constants.js` with the app ID for your Games Services ID
 from the Google Play Developer Console.
 
 ## Using the sample ##

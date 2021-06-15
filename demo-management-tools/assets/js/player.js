@@ -266,7 +266,7 @@ player.personalizeUI = function() {
         '" alt="' + utilities.escapeQuotes(player.displayName) +
         '" title="' + utilities.escapeQuotes(player.displayName) +
         '" height="45" />' + '</a></td><td>' + 'Signed in' + ' as:<br>' +
-        utilities.escapeQuotes(player.displayName) + '</td></tr></table>';
+        (utilities.escapeQuotes(player.displayName) || "-- no name --") + '</td></tr></table>';
     document.getElementById('playerCard').innerHTML = playerHtml;
   });
 };

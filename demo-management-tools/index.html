@@ -5,20 +5,20 @@
       name="viewport"
       content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no"
     />
-    <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
-    <link rel="shortcut icon" type="image" href="assets/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/custom.css" />
+    <link rel="shortcut icon" type="image" href="./assets/images/favicon.ico" />
 
     <!-- Supporting Scripts -->
-    <script src="assets/js/achievements.js"></script>
-    <script src="assets/js/constants.js"></script>
-    <script src="assets/js/events.js"></script>
-    <script src="assets/js/quests.js"></script>
-    <script src="assets/js/leaderboards.js"></script>
-    <script src="assets/js/multiplayer.js"></script>
-    <script src="assets/js/player.js"></script>
-    <script src="assets/js/snapshots.js"></script>
-    <script src="assets/js/utilities.js"></script>
+    <script src="./assets/js/achievements.js"></script>
+    <script src="./assets/js/constants.js"></script>
+    <script src="./assets/js/events.js"></script>
+    <script src="./assets/js/quests.js"></script>
+    <script src="./assets/js/leaderboards.js"></script>
+    <script src="./assets/js/multiplayer.js"></script>
+    <script src="./assets/js/player.js"></script>
+    <script src="./assets/js/snapshots.js"></script>
+    <script src="./assets/js/utilities.js"></script>
 
     <script>
       window.WebComponents = window.WebComponents || {};
@@ -55,7 +55,7 @@
                 data-clientid="REPLACE_CLIENT_ID"
                 data-cookiepolicy="single_host_origin"
                 data-scope="https://www.googleapis.com/auth/games https://www.googleapis.com/auth/drive.appdata"
-              >
+              >Sign-in
               </span>
             </span>
           </div>
@@ -71,7 +71,7 @@
         id="signoutButton"
         onClick="gapi.auth.signOut()"
         style="font-size: 15px; color: #000;"
-      >Signout</paper-item>
+      >Sign-out</paper-item>
       <paper-item
         id="disconnectButton"
         style="font-size: 15px; color: #000;"
@@ -93,7 +93,7 @@
       </div>
       <div id="activeUI" style="display: none" class="container" layout vertical center>
         <main id="mainPages" class="mainPages" selected="0">
-          <div id="achievements" class="core-selected" active>
+          <div id="achievements" class="core-pages core-selected" active>
             <div vertical layout style="margin-bottom: auto">
               <div>
                 <h2 class="pageHeading">Achievements Management</h2>
@@ -259,7 +259,7 @@
             </div>
           </div>
 
-          <div id="leaderboard">
+          <div id="leaderboard" class="core-pages">
             <div vertical layout style="margin-bottom: auto">
               <div>
                 <h2 class="pageHeading">Leaderboard Management</h2>
@@ -429,7 +429,7 @@
             </div>
           </div>
 
-          <div id="events">
+          <div id="events" class="core-pages">
             <div vertical layout style="margin-bottom: auto">
               <div>
                 <h2 class="pageHeading">Events Management</h2>
@@ -512,7 +512,7 @@
             </div>
           </div>
 
-          <div id="quests">
+          <div id="quests" class="core-pages">
             <div vertical layout style="margin-bottom: auto">
               <div>
                 <h2 class="pageHeading">Quests Management</h2>
@@ -570,7 +570,7 @@
             </div>
           </div>
 
-          <div id="multiplayer">
+          <div id="multiplayer" class="core-pages">
             <div vertical layout style="margin-bottom: auto">
               <div>
                 <h2 class="pageHeading">Multiplayer Management</h2>
@@ -624,7 +624,7 @@
             </div>
           </div>
 
-          <div id="snapshots">
+          <div id="snapshots" class="core-pages">
             <div vertical layout style="margin-bottom: auto">
               <div>
                 <h2 class="pageHeading">Snapshots Management</h2>
@@ -686,6 +686,43 @@
 
     <div style="color: #ff0000" id="errorDiv"></div>
   </body>
+
+  <!-- tab switching -->
+  <script>
+    var tabs = document.querySelector('paper-tabs');
+
+    var colors = {
+      accent1: '#00bcd4', // achievements
+      accent2: '#e81d62', // leaderboards
+      accent3: '#9f499b', // events
+      accent4: '#d23f31', // quests
+      accent5: '#f9b24f', // multiplayer
+      accent6: '#3e50b4',  // snapshots
+    };
+
+    tabs.addEventListener('click', function() {
+      var pages = document.getElementsByClassName('core-pages');
+      pages.selected = (pages.selected + 1) % pages.length;
+
+      // console.log('Selected: ' + tabs.selected);
+
+      var pageIds = [
+        {selectorId: 0, idString: '#achievements', color: colors.accent1},
+        {selectorId: 1, idString: '#leaderboard', color: colors.accent2},
+        {selectorId: 2, idString: '#events', color: colors.accent3},
+        {selectorId: 3, idString: '#quests', color: colors.accent4},
+        {selectorId: 4, idString: '#multiplayer', color: colors.accent5},
+        {selectorId: 5, idString: '#snapshots', color: colors.accent6}
+      ];
+
+      for (var i = 0; i < pageIds.length; i++) {
+        document.querySelector(pageIds[i].idString).classList.remove('core-selected');
+        // highlight
+        var highlight = document.querySelector(pageIds[tabs.selected].idString);
+        highlight.classList.add('core-selected');
+      }
+    });
+  </script>
 
   <!-- Place this asynchronous JavaScript just before your </body> tag -->
   <script type="text/javascript">

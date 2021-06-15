@@ -46,3 +46,30 @@ h1 {
   height: calc(100% - 70px);
   overflow-y: scroll;
 }
+
+.core-pages {
+  display: none;
+}
+
+.core-selected {
+  display: block;
+}
+
+.miniForm {
+  padding: 15px;
+}
+
+paper-button {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.container {
+  height: auto;
+  padding: 10px 10px 40px;
+}
+
+.mainContent {
+  background-color: transparent;
+}
